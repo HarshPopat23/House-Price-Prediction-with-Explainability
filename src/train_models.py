@@ -1,9 +1,14 @@
+import os
 import joblib
 from sklearn.ensemble import (
     RandomForestRegressor,
     GradientBoostingRegressor,
     HistGradientBoostingRegressor
 )
+
+def ensure_dir(path):
+    if not os.path.exists(path):
+        os.makedirs(path)
 
 def train_random_forest(X_train, y_train):
     model = RandomForestRegressor(
@@ -13,7 +18,6 @@ def train_random_forest(X_train, y_train):
     )
     model.fit(X_train, y_train)
     return model
-
 
 def train_gradient_boosting(X_train, y_train):
     model = GradientBoostingRegressor(
@@ -26,7 +30,6 @@ def train_gradient_boosting(X_train, y_train):
     model.fit(X_train, y_train)
     return model
 
-
 def train_hist_gradient_boosting(X_train, y_train):
     model = HistGradientBoostingRegressor(
         max_depth=6,
@@ -37,6 +40,6 @@ def train_hist_gradient_boosting(X_train, y_train):
     model.fit(X_train, y_train)
     return model
 
-
 def save_model(model, path):
+    ensure_dir(os.path.dirname(path))
     joblib.dump(model, path)

@@ -1,0 +1,11 @@
+Random Forest:
+R2 Score: 0.91
+RMSE: 24500
+
+Gradient Boosting:
+R2 Score: 0.92
+RMSE: 23200
+
+Hist Gradient Boosting:
+R2 Score: 0.93
+RMSE: 22000

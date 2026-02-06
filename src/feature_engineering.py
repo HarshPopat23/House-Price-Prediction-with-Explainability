@@ -15,9 +15,7 @@ def encode_categorical(df):
         'Sale Condition','Neighborhood',
         'Exterior 1st','Exterior 2nd','Paved Drive'
     ]
-
     return pd.get_dummies(df, columns=cat_cols, drop_first=True)
-
 
 def scale_numerical(df):
     num_cols = [
